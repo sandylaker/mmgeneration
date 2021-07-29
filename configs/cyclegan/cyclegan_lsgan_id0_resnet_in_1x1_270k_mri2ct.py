@@ -13,8 +13,8 @@ data = dict(
     test=dict(dataroot=dataroot))
 
 optimizer = dict(
-    generators=dict(type='Adam', lr=0.001, betas=(0.5, 0.999)),
-    discriminators=dict(type='Adam', lr=0.001, betas=(0.5, 0.999)))
+    generators=dict(type='Adam', lr=0.0002, betas=(0.5, 0.999)),
+    discriminators=dict(type='Adam', lr=0.0002, betas=(0.5, 0.999)))
 lr_config = dict(
     policy='CosineAnnealing',
     warmup='linear',
