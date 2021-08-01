@@ -169,7 +169,7 @@ def main():
         # for translation model, we feed them images from dataloader
         data_loader_iter = iter(data_loader)
         data_batch = next(data_loader_iter)
-        output_dict = model(test_mode=True, **data_batch)
+        output_dict = model(test_mode=True, save_image=True, save_path=samples_path, **data_batch)
         fakes = output_dict[fake_key]
         pbar.update(end - begin)
         for i in range(end - begin):

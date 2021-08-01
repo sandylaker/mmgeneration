@@ -112,6 +112,8 @@ class CycleGAN(BaseGAN):
             if self.direction == 'b2a':
                 self.test_direction = ('b2a' if self.test_direction == 'a2b'
                                        else 'a2b')
+        else:
+            self.test_direction = self.test_cfg.get('test_direction', 'a2b')
 
         self.init_weights(pretrained)
 
