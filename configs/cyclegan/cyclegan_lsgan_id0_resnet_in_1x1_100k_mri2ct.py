@@ -19,20 +19,20 @@ lr_config = dict(
     policy='CosineAnnealing',
     warmup='linear',
     warmup_iters=2000,
-    warmup_ratio=1.0 / 10,
+    warmup_ratio=1.0 / 100,
     min_lr_ratio=1e-2)
-checkpoint_config = dict(interval=50000, save_optimizer=False, by_epoch=False)
+checkpoint_config = dict(interval=20000, save_optimizer=False, by_epoch=False)
 custom_hooks = [
     dict(
         type='MMGenVisualizationHook',
         output_dir='training_samples',
         res_name_list=['fake_b'],
-        interval=50000)
+        interval=10000)
 ]
 
 runner = None
 use_ddp_wrapper = True
-total_iters = 270000
+total_iters = 100000
 workflow = [('train', 1)]
 metrics = dict(
     FID=dict(type='FID', num_images=140, image_shape=(3, 256, 256)),
