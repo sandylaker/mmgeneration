@@ -15,12 +15,7 @@ data = dict(
 optimizer = dict(
     generators=dict(type='Adam', lr=0.0002, betas=(0.5, 0.999)),
     discriminators=dict(type='Adam', lr=0.0002, betas=(0.5, 0.999)))
-lr_config = dict(
-    policy='CosineAnnealing',
-    warmup='linear',
-    warmup_iters=2000,
-    warmup_ratio=1.0 / 100,
-    min_lr_ratio=1e-2)
+lr_config = None
 checkpoint_config = dict(interval=20000, save_optimizer=False, by_epoch=False)
 custom_hooks = [
     dict(
